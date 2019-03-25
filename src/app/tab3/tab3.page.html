@@ -6,4 +6,33 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      Добро пожаловать! На данной страничке вы можете оставить заявку на трудоустройство
+      зарубежом!
+    </ion-card-content>
+  </ion-card>
+  <ion-item> 
+    <!-- Кнопка выбора страны -->
+    <ion-select placeholder="Выберите страну">
+<ion-select-option value="australiya">Австралия</ion-select-option>
+<ion-select-option value="austria">Австрия</ion-select-option>
+    </ion-select>
+   
+  </ion-item>
+  <ion-item>
+    <!-- Текстовое поле для комментариев к заявке -->
+    <ion-textarea placeholder="Введите комментарий 
+  к заявке на трудоустройство зарубежом"  [(ngModel)]="_message" name="message">
+  </ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="sendEmail()">
+      <!-- Кнопка с волновым эффектом -->
+      <ion-ripple-effect></ion-ripple-effect>
+     Оставить заявку
+    </ion-button>
+  </ion-item>
+
+</ion-content>

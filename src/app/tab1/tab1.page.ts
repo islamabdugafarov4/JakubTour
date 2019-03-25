@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {EmailComposer} from "@ionic-native/email-composer/ngx";
+import { NavController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-tab1',
@@ -7,22 +8,10 @@ import {EmailComposer} from "@ionic-native/email-composer/ngx";
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-constructor(private emailComposer:EmailComposer){}
+constructor(public navCtrl:NavController){}
 
-
-
-  sendEmail(){
-    let email = {
-      to: 'esendemail@bk.ru',
-      cc:'abdugafarov.islam@mail.ru',
-      attachments:[
-          //send files
-      ],
-        subject:'Hello',
-        body:'dasdasdas',
-        isHtml:true
-    };
-    this.emailComposer.open(email);
-    }
-
+// Функция отправки на другую вкладку по URL
+  tosendData():void {
+   this.navCtrl.navigateRoot('/send-data')
+  }
 }
