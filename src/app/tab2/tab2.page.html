@@ -3,16 +3,69 @@
     <ion-title>
       Список стран
     </ion-title>
+    <ion-searchbar placeholder="Поиск страны" autocomplete="on" animated="true" color="medium"></ion-searchbar>
+<!--Добавлен поиск страны-->
   </ion-toolbar>
 </ion-header>
+<ion-content padding="true">
+<!--Изменены иконки и установлены метки для стран, добавлена функция навигации по странам-->
 <ion-list>
-<ion-buttons>
-  <ion-button >
-    <ion-img [src]="">
-    Австралия
-    </ion-img>
-  </ion-button>
+  <ion-item (click)="toAustraliya()" >
+    <ion-thumbnail slot="start">
+      <ion-img src="/assets/country_images/1.jpeg">
+      </ion-img>
+    </ion-thumbnail>
+    <ion-label>Австралия</ion-label>
+  </ion-item>
+  <ion-item (click)="toAvstriya()">
+    <ion-thumbnail slot="start">
+      <ion-img src="/assets/country_images/2.jpeg">
+      </ion-img>
+    </ion-thumbnail>
+    <ion-label>Австрия</ion-label>
+  </ion-item>
+  <ion-item (click)="toBelgi()">
+    <ion-thumbnail slot="start">
+      <ion-img src="/assets/country_images/3.jpeg">
+      </ion-img>
+    </ion-thumbnail>
+    <ion-label>Бельгия</ion-label>
+  </ion-item>
+  <ion-item (click)="toBolg()">
+    <ion-thumbnail slot="start">
+      <ion-img src="/assets/country_images/4.jpeg">
+      </ion-img>
+    </ion-thumbnail>
+    <ion-label>Болгария</ion-label>
+  </ion-item>
+  <ion-item (click)="toVelik()">
+    <ion-thumbnail slot="start">
+      <ion-img src="/assets/country_images/5.jpeg">
+      </ion-img>
 
-</ion-buttons>
-</ion-list>
-<ion-content></ion-content>
+    </ion-thumbnail>
+    <ion-label>Великобритания</ion-label>
+  </ion-item>
+  <ion-item (click)="toVengr()">
+    <ion-thumbnail slot="start">
+      <ion-img src="/assets/country_images/6.jpeg">
+      </ion-img></ion-thumbnail>
+    <ion-label> Венгрия</ion-label>
+  </ion-item>
+  <ion-item (click)="toGermany()">
+    <ion-thumbnail slot="start">
+      <ion-img src="/assets/country_images/7.jpeg">
+      </ion-img>
+    </ion-thumbnail>
+    <ion-label>Германия</ion-label>
+  </ion-item>
+  <ion-item (click)="toGrec()">
+    <ion-thumbnail slot="start">
+      <ion-img src="/assets/country_images/8.jpeg">
+      </ion-img>
+    </ion-thumbnail>
+    <label>Греция</label>
+  </ion-item>
+
+  </ion-list>
+</ion-content>

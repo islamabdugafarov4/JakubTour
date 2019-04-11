@@ -7,24 +7,21 @@
 <ion-content padding>
   <ion-card>
     <ion-card-content>
-      Оставьте ваш номер, мы вам
+      Оставьте свой номер, и мы вам
       перезвоним
     </ion-card-content>
   </ion-card>
   <!--Форма отправки данных-->
   <form (ngSubmit)="logForm()">
     <ion-item>
-      <!--Метка-->
-      <ion-label>Todo</ion-label>
       <!--Сбор данных с помощью атрибут ngModel-->
-      <ion-input type="text" [(ngModel)]="todo.title" name="title"></ion-input>
+      <ion-input type="tel" pattern="[0-9]*" name="title" placeholder="Телефон"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Description</ion-label>
       <!--Сбор данных с помощью атрибут ngModel-->
-      <ion-textarea [(ngModel)]="todo.description" name="description"></ion-textarea>
+      <ion-textarea  name="description" placeholder="Имя"></ion-textarea>
     </ion-item>
     <!--кнопка отправки-->
-    <ion-button type="submit" block>Add Todo</ion-button>
+    <ion-button type="submit" block>Заказать обратный звонок</ion-button>
   </form>
 </ion-content>
