@@ -15,13 +15,13 @@
   <form (ngSubmit)="logForm()">
     <ion-item>
       <!--Сбор данных с помощью атрибут ngModel-->
-      <ion-input type="tel" pattern="[0-9]*" name="title" placeholder="Телефон"></ion-input>
+      <ion-input type="tel" pattern="[0-9]*" name="title" placeholder="Телефон" [brmasker]="{len:15,mask:'(000) 000 00 00'}">+7</ion-input>
     </ion-item>
     <ion-item>
       <!--Сбор данных с помощью атрибут ngModel-->
-      <ion-textarea  name="description" placeholder="Имя"></ion-textarea>
+      <ion-input type="text"  name="description" placeholder="Имя"></ion-input>
     </ion-item>
     <!--кнопка отправки-->
-    <ion-button type="submit" block>Заказать обратный звонок</ion-button>
+    <ion-button type="submit" block (submit)="logForm()">Заказать обратный звонок</ion-button>
   </form>
 </ion-content>

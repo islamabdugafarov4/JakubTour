@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { SendDataPage } from './send-data.page';
+import {BrMaskerModule} from "brmasker-ionic-3";
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+      BrMaskerModule
   ],
   declarations: [SendDataPage]
 })
