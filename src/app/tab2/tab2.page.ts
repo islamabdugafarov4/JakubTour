@@ -1,19 +1,42 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
+import {Countryes} from "../models/countryes";
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+    selector: 'app-tab2',
+    templateUrl: 'tab2.page.html',
+    styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-    constructor(private router:Router){}
-    toAustraliya() {this.router.navigateByUrl('australiya');}
-    toVengr() {this.router.navigateByUrl('vengr');}
-    toVelik() {this.router.navigateByUrl('velik');}
-    toGrec() {this.router.navigateByUrl('grec');}
-    toGermany() {this.router.navigateByUrl('germany');}
-    toBelgi() {this.router.navigateByUrl('belgi');}
-    toAvstriya() {this.router.navigateByUrl('avstryia');}
-    toBolg() {this.router.navigateByUrl('bolg');}
+    constructor(private router: Router) {}
+    data: Countryes = {
+        images: ["/assets/country_images/1.jpeg",
+            "/assets/country_images/2.jpeg",
+            "/assets/country_images/3.jpeg",
+            "/assets/country_images/4.jpeg",
+            "/assets/country_images/5.jpeg",
+            "/assets/country_images/6.jpeg",
+            "/assets/country_images/7.jpeg",
+            "/assets/country_images/8.jpeg",],
+        names: ["Австралия",
+            "Австрия",
+            "Бельгия",
+            "Болгария",
+            "Великобритания",
+            "Венгрия",
+            "Германия",
+            "Греция"],
+        nav_countryes: [
+            'australiya',
+            'avstryia',
+            'belgi',
+            'bolg',
+            'velik',
+            'vengr',
+            'grec',
+            'germany']
+    };
+    toCountry($event: any) {
+        this.router.navigateByUrl($event);
+    }
 }
