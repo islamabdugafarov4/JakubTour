@@ -3,6 +3,8 @@ import {AngularFireAuth} from "@angular/fire/auth";
 import {auth} from 'firebase/app';
 import {UserService} from "../../services/user.service";
 import {Router} from "@angular/router";
+import {reject} from "q";
+import * as firebase from "firebase";
 @Component({
     selector: 'app-login',
     templateUrl: './login.page.html',
@@ -36,5 +38,17 @@ async login(){
          }
          }
 
+     }
+     doGoogleLogin(){
+        return new Promise<any>((resolve,reject)=>{
+            let provider = new firebase.auth.GoogleAuthProvider();
+            provider.addScope('profile');
+            provider.addScope('email');
+            this.afAuth.auth.signInWithPopup(provider).then(res =>{
+                resolve(res);
+                this.router.navigate(['/tabs']);
+            })
+
+        })
      }
 }

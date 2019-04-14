@@ -1,21 +1,21 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Список стран
-    </ion-title>
-    <ion-searchbar placeholder="Поиск страны" autocomplete="on" animated="true" color="medium"></ion-searchbar>
-<!--Добавлен поиск страны-->
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            Список стран
+        </ion-title>
+        <ion-searchbar placeholder="Поиск страны" autocomplete="on" animated="true" color="medium"></ion-searchbar>
+        <!--Добавлен поиск страны-->
+    </ion-toolbar>
 </ion-header>
 <ion-content padding="true">
-<!--Изменены иконки и установлены метки для стран, добавлена функция навигации по странам-->
-<ion-list>
- <ion-item   *ngFor="let name of data.names,let nav_country of data.nav_countryes,let image of data.images"
-           (click)="toCountry(nav_country)">
-     <ion-thumbnail slot="start">
-         <ion-img [src]="image"></ion-img>
-     </ion-thumbnail>
-     <ion-label>{{name}}</ion-label>
- </ion-item>
-  </ion-list>
+    <!--Изменены иконки и установлены метки для стран, добавлена функция навигации по странам-->
+    <ion-list>
+        <ion-item *ngFor="let name of names,let i=index, let j=index">
+            <ion-thumbnail>
+                <ion-img [src]="images[i]"></ion-img>
+            </ion-thumbnail>
+            <label (click)="toCountry(nav_countryes[j])">{{name}}</label>
+        </ion-item>
+
+    </ion-list>
 </ion-content>
