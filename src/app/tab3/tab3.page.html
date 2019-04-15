@@ -15,16 +15,15 @@
   </ion-card>
   <ion-item> 
     <!-- Кнопка выбора страны -->
-    <ion-select placeholder="Выберите страну">
-<ion-select-option value="australiya">Австралия</ion-select-option>
-<ion-select-option value="austria">Австрия</ion-select-option>
-    </ion-select>
+    <ionic-selectable  [(ngModel)]="select" [items]="selects" placeholder="Выбор Страны" [canSearch]="true"
+                  itemValueField="id" itemTextField="name"
+                       (onChange)="countryChange($event)"></ionic-selectable>
    
   </ion-item>
   <ion-item>
     <!-- Текстовое поле для комментариев к заявке -->
     <ion-textarea placeholder="Введите комментарий 
-  к заявке на трудоустройство зарубежом"  [(ngModel)]="_message" name="message">
+  к заявке на трудоустройство зарубежом"  [(ngModel)]="message" name="message">
   </ion-textarea>
   </ion-item>
   <ion-item>

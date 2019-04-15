@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -8,10 +8,10 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-constructor(public navCtrl:NavController){}
+constructor(public router:Router){}
 
 // Функция отправки на другую вкладку по URL
-  tosendData():void {
-   this.navCtrl.navigateRoot('/send-data')
+  tosendData(){
+   this.router.navigate(['/send-data']);
   }
 }

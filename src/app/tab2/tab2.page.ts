@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {Countryes} from "../models/countryes";
+import {IonSearchbar} from "@ionic/angular";
+
 
 @Component({
     selector: 'app-tab2',
@@ -8,6 +9,9 @@ import {Countryes} from "../models/countryes";
     styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+    isSearchbarOpened = false;
+    names: string[];
+    searchQuery: string = '';
     nav_countryes = [
         'australiya',
         'avstryia',
@@ -17,15 +21,7 @@ export class Tab2Page {
         'vengr',
         'grec',
         'germany'];
-    names =[
-        "Австралия",
-        "Австрия",
-        "Бельгия",
-        "Болгария",
-        "Великобритания",
-        "Венгрия",
-        "Германия",
-        "Греция"];
+
     images = [
         "/assets/country_images/1.jpeg",
         "/assets/country_images/2.jpeg",
@@ -35,9 +31,35 @@ export class Tab2Page {
         "/assets/country_images/6.jpeg",
         "/assets/country_images/7.jpeg",
         "/assets/country_images/8.jpeg",];
-    constructor(private router: Router) {}
 
+    constructor(private router: Router) {
+    this.initializeItems();
+    }
+    initializeItems(){
+        this.names = [
+            "Австралия",
+            "Австрия",
+            "Бельгия",
+            "Болгария",
+            "Великобритания",
+            "Венгрия",
+            "Германия",
+            "Греция"
+        ];
+
+    }
+    getItems(event:any){
+        this.initializeItems();
+        const val = event.target.value
+        if (val && val.trim() != '') {
+            this.names = this.names.filter((item) =>{
+                return (item.toLowerCase().indexOf(val.toLowerCase())>-1);
+            })
+        }
+    }
     toCountry($event: any) {
         this.router.navigateByUrl($event);
     }
+
+
 }

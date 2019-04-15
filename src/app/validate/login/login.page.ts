@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/auth";
 import {auth} from 'firebase/app';
-import {UserService} from "../../services/user.service";
 import {Router} from "@angular/router";
 import {reject} from "q";
 import * as firebase from "firebase";
+import {UserService} from "../../services/user.service";
 @Component({
     selector: 'app-login',
     templateUrl: './login.page.html',

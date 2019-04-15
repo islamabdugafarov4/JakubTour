@@ -1,9 +1,16 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>
+        <ion-title *ngIf="!isSearchbarOpened">
             Список стран
         </ion-title>
-        <ion-searchbar placeholder="Поиск страны" autocomplete="on" animated="true" color="medium"></ion-searchbar>
+<ion-searchbar *ngIf="isSearchbarOpened"
+               autocorrect="on" autocomplete="on"
+               showCancelButton="true" (ionCancel)="isSearchbarOpened=false" (input)="getItems($event)" ></ion-searchbar>
+        <ion-buttons slot="end">
+            <ion-button *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">
+                <ion-icon name="search"></ion-icon>
+            </ion-button>
+        </ion-buttons>
         <!--Добавлен поиск страны-->
     </ion-toolbar>
 </ion-header>
