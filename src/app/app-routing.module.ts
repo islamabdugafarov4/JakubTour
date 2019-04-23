@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'grec', loadChildren: './countryes/grec/grec.module#GrecPageModule' },
   { path: 'germany', loadChildren: './countryes/germany/germany.module#GermanyPageModule' },
   { path: 'login', loadChildren: './validate/login/login.module#LoginPageModule' },
-  { path: 'register', loadChildren: './validate/register/register.module#RegisterPageModule' }
+  { path: 'register', loadChildren: './validate/register/register.module#RegisterPageModule' },
 ];
 @NgModule({
   imports: [

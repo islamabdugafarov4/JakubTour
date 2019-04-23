@@ -1,7 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {EmailComposer} from '@ionic-native/email-composer/ngx';
+import {Component, ComponentRef, OnInit} from '@angular/core';
 import {Selectlist} from "../models/selectlist";
-import {ToastController} from "@ionic/angular";
 import {IonicSelectableComponent} from "ionic-selectable";
 
 @Component({
@@ -10,11 +8,42 @@ import {IonicSelectableComponent} from "ionic-selectable";
     styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page{
-    message: string;
-    selects: Selectlist[];
+    sphere_selects:Selectlist[];
+    country_selects: Selectlist[];
     select:Selectlist;
-    constructor(private emailComposer: EmailComposer,private toast:ToastController) {
-        this.selects = [
+    constructor() {
+        this.sphere_selects = [
+            {id:1,name:'Розничная торговля / продажи / закупки'},
+            {id:2,name:'Транспорт / логистика'},
+            {id:3,name:'Строительство / архитектура'},
+            {id:4,name:'Недвижимость'},
+            {id:5,name:'Банки / страхование'},
+            {id:6,name:'Финансы / бухгалтерия / экономика'},
+            {id:7,name:'Юристы / адвокаты / нотариусы'},
+            {id:8,name:'Охрана / безопасность'},
+            {id:9,name:'Домашний персонал'},
+            {id:10,name:'Красота / фитнес / спорт'},
+            {id:11,name:'Гостиницы / туризм / отдых'},
+            {id:12,name:'Бары / рестораны / кафе'},
+            {id:13,name:'Образование / наука'},
+            {id:14,name:'Культура / искусство / развлечения'},
+            {id:15,name:'Медицина / фармацевтика'},
+            {id:16,name:'Интернет / IT / компьютеры / телеком'},
+            {id:17,name:'Маркетинг / реклама / дизайн'},
+            {id:18,name:'Производство / энергетика'},
+            {id:19,name:'Добыча сырья'},
+            {id:20,name:'Административный персонал'},
+            {id:21,name:'HR / управление персоналом / тренинги'},
+            {id:22,name:'Начало карьеры / стажировка / практика'},
+            {id:23,name:'Сервис и быт'},
+            {id:24,name:'СТО / автомойки / сервисное обслуживание'},
+            {id:25,name:'Топ-менеджмент / руководство высшего звена'},
+            {id:26,name:'Государственная служба / некоммерческие организации'},
+            {id:27,name:'Сельское хозяйство / агробизнес / лесное хозяйство'},
+            {id:28,name:'Сетевой маркетинг'},
+            {id:29,name:'Другие сферы деятельности'},
+        ];
+        this.country_selects = [
             {id: 1, name: 'Австралия'},
             {id: 2, name: 'Австрия'},
             {id: 3, name: 'Бельгия'},
@@ -23,36 +52,17 @@ export class Tab3Page{
             {id: 6, name: 'Венгрия'},
             {id: 7, name: 'Германия'},
             {id: 8, name: "Греция"},
-        ]
+        ];
+
     }
 
-    countryChange(event: {
+
+    itemChange(event: {
         component: IonicSelectableComponent,
         value: any
     })
     {
         console.log('Страна', event.value);
     }
-
-  async sendEmail() {
-        const toast = await this.toast.create({
-            message:'Письмо отправлено компании по адресу электронной почты.....',
-            duration:2000
-        });
-        let email = {
-            to: 'esendemail@bk.ru',
-            cc: 'abdugafarov.islam@mail.ru',
-            attachments: [
-                //send files
-            ],
-            subject: event.valueOf(),
-            body: this.message,
-            isHtml: true
-        };
-        toast.present();
-        // @ts-ignore
-        this.emailComposer.open(email);
-    }
-
 
 }

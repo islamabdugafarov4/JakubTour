@@ -10,8 +10,4 @@ import {Router} from "@angular/router";
 export class Tab1Page {
 constructor(public router:Router){}
 
-// Функция отправки на другую вкладку по URL
-  tosendData(){
-   this.router.navigate(['/send-data']);
-  }
 }

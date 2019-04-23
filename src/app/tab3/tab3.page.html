@@ -13,21 +13,33 @@
       зарубежом!
     </ion-card-content>
   </ion-card>
-  <ion-item> 
-    <!-- Кнопка выбора страны -->
-    <ionic-selectable  [(ngModel)]="select" [items]="selects" placeholder="Выбор Страны" [canSearch]="true"
-                  itemValueField="id" itemTextField="name"
-                       (onChange)="countryChange($event)"></ionic-selectable>
-   
+
+  <ion-item>
+    <ionic-selectable  searchFailText="Не найдено" searchPlaceholder="Поиск"
+                       closeButtonText="Отмена"  [(ngModel)]="select" [items]="country_selects"
+                       placeholder="Выбор страны" [canSearch]="true"
+                       itemValueField="id" itemTextField="name"
+                       (onChange)="itemChange($event)"></ionic-selectable>
+  </ion-item>
+  <ion-item>
+    <ionic-selectable searchPlaceholder="Поиск" searchFailText="Не найдено"
+                      closeButtonText="Отмена" [(ngModel)]="select" [items]="sphere_selects"
+                      placeholder="Выбор специальности" [canSearch]="true"
+                      itemValueField="id" itemTextField="name"
+                      (onChange)="itemChange($event)"></ionic-selectable>
+  </ion-item>
+  <ion-item>
+    <label>Заработная плата</label>
+    <ion-range min="0" max="3000000" step="5000" snaps="true"></ion-range>
   </ion-item>
   <ion-item>
     <!-- Текстовое поле для комментариев к заявке -->
     <ion-textarea placeholder="Введите комментарий 
-  к заявке на трудоустройство зарубежом"  [(ngModel)]="message" name="message">
+  к заявке на трудоустройство зарубежом"   name="message">
   </ion-textarea>
   </ion-item>
   <ion-item>
-    <ion-button (click)="sendEmail()">
+    <ion-button >
       <!-- Кнопка с волновым эффектом -->
       <ion-ripple-effect></ion-ripple-effect>
      Оставить заявку
