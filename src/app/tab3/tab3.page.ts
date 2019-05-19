@@ -1,17 +1,32 @@
 import {Component, ComponentRef, OnInit} from '@angular/core';
 import {Selectlist} from "../models/selectlist";
 import {IonicSelectableComponent} from "ionic-selectable";
+import {EmailComposer} from "@ionic-native/email-composer/ngx";
+import {AngularFireAuth} from "@angular/fire/auth";
+import {LoginPage} from "../validate/login/login.page";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Logindata} from "../models/logindata";
 
 @Component({
     selector: 'app-tab3',
     templateUrl: 'tab3.page.html',
     styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page{
+export class Tab3Page implements OnInit{
     sphere_selects:Selectlist[];
     country_selects: Selectlist[];
-    select:Selectlist;
-    constructor() {
+    country:Selectlist;
+    sphere:Selectlist;
+    file: File;
+
+    data:Logindata = new Logindata();
+    range:any;
+    min:any  = 0;
+    max:any = 1000000;
+    step:any = 5000;
+    valueMin: any;
+    valueMax: any;
+    constructor(private emailComposer:EmailComposer) {
         this.sphere_selects = [
             {id:1,name:'Розничная торговля / продажи / закупки'},
             {id:2,name:'Транспорт / логистика'},
@@ -54,6 +69,8 @@ export class Tab3Page{
             {id: 8, name: "Греция"},
         ];
 
+        this.valueMin = this.min;
+        this.valueMax = this.max;
     }
 
 
@@ -64,5 +81,33 @@ export class Tab3Page{
     {
         console.log('Страна', event.value);
     }
+    sendEmail(){
+         let email = {
+             to: 'sendemail@bk.ru',
+             cc: this.data.email,
+             bcc: ['abdugafarov.islam@mail.ru'],
+             attachments: [
+            this.file.name
+             ],
+             subject:"Здраствуйте , меня заинтересовало трудоустройство зарубежом!",
+             body: "Интересно устроиться работать в стране"+this.country+"по специальности"+this.sphere+
+                 ". Желаемая заработная плата от "+this.valueMin+" тенге до "+this.valueMax,
+             isHtml: true
+         };
+
+// Send a text message using default options
+         this.emailComposer.open(email);
+
+
+    }
+    setBadge(range) {
+        this.valueMin = range.lower;
+        this.valueMax = range.upper;
+    }
+    ngOnInit(): void {
+
+    }
+
+
 
 }

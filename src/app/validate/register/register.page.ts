@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 
 import {AngularFirestore} from "@angular/fire/firestore";
 import {UserService} from "../../services/user.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
     selector: 'app-register',
@@ -18,38 +19,40 @@ export class RegisterPage implements OnInit {
     confrimpassword: string = "";
 
     constructor(public afAuth: AngularFireAuth, public alert: AlertController,
-                public router:Router,private user:UserService,private afstore:AngularFirestore) {
+                public router:Router,private user:UserService,
+                private afstore:AngularFirestore) {
+
     }
 
     ngOnInit() {
     }
 
     async register() {
-        const {email, password, confrimpassword} = this
-        if (password != confrimpassword) {
-            this.showAlert("Ошибка!","Пароли не совпадают!");
-            return console.error("Пароли не совпадают!")
-        }
-        try {
-            const res = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
-            console.log(res);
-            this.afstore.doc('/users/${res.user.uid}').set({
-               email
-            });
-           ;
-            if (res.user){
+            const {email, password, confrimpassword} = this;
+            if (password != confrimpassword) {
+                this.showAlert("Ошибка!","Пароли не совпадают!");
+                return console.error("Пароли не совпадают!")
+            }
+            try {
+                const res = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+                console.log(res);
+                this.afstore.doc('/users/${res.user.uid}').set({
+                    email
+                });
+                if (res.user){
                     this.user.setUser({
                         email,
                         uid: res.user.uid
                     });}
-            this.showAlert("Успех!","Добро пожаловать!");
-            this.router.navigate(['/tabs']);
+                this.showAlert("Успех!","Добро пожаловать!");
+                this.router.navigate(['/tabs']);
 
-        } catch (e) {
-            console.dir(e);
-            this.showAlert("Ошибка!",e.message);
+            } catch (e) {
+                console.dir(e);
+                this.showAlert("Ошибка!",e.message);
 
-        }
+            }
+
 
     }
 

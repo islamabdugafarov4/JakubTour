@@ -4,7 +4,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: '', redirectTo:'login',pathMatch:'full' },
-  { path: 'send-data', loadChildren: './send-data/send-data.module#SendDataPageModule' },
   { path: 'australiya', loadChildren: './countryes/australiya/australiya.module#AustraliyaPageModule' },
   { path: 'avstryia', loadChildren: './countryes/avstryia/avstryia.module#AvstryiaPageModule' },
   { path: 'belgi', loadChildren: './countryes/belgi/belgi.module#BelgiPageModule' },
@@ -15,6 +14,7 @@ const routes: Routes = [
   { path: 'germany', loadChildren: './countryes/germany/germany.module#GermanyPageModule' },
   { path: 'login', loadChildren: './validate/login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './validate/register/register.module#RegisterPageModule' },
+  { path: 'feedback', loadChildren: './feedback/feedback.module#FeedbackPageModule' },
 ];
 @NgModule({
   imports: [

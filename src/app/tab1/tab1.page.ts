@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-constructor(public router:Router){}
+constructor(){}
+
 
 }

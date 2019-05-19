@@ -2,18 +2,21 @@
 
 <ion-content padding>
 <div id="authorization">Авторизация</div>
+
 <ion-list>
 
   <ion-item-sliding>
-    <ion-label position="floating">E-mail</ion-label>
-    <ion-input type="email" [(ngModel)]="email"></ion-input>
+    <ion-icon name="mail"></ion-icon>
+    <ion-input type="email" [(ngModel)]="email" placeholder="example@mail.ru" ></ion-input>
   </ion-item-sliding>
   <ion-item-sliding>
-    <ion-label position="floating">Password</ion-label>
-    <ion-input type="password" [(ngModel)]="password"></ion-input>
+    <ion-icon name="key"></ion-icon>
+    <ion-input type="password" [(ngModel)]="password" placeholder="Пароль" ></ion-input>
   </ion-item-sliding>
 </ion-list>
-  <ion-button fill="solid" expand="block" color="secondary" (click)="login()">Войти</ion-button>
-  <ion-button fill="solid" expand="block" color="danger" (click)="doGoogleLogin()">Войти с помощью Google</ion-button>
+  <ion-button fill="solid" expand="block" color="secondary" (click)="login()">
+    <ion-icon name="log-in"></ion-icon>
+    Войти</ion-button>
   <ion-button fill="solid" expand="block" color="secondary" routerLink="/register">Регистрация</ion-button>
+
 </ion-content>

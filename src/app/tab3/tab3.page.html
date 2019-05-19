@@ -13,33 +13,33 @@
       зарубежом!
     </ion-card-content>
   </ion-card>
-
   <ion-item>
     <ionic-selectable  searchFailText="Не найдено" searchPlaceholder="Поиск"
-                       closeButtonText="Отмена"  [(ngModel)]="select" [items]="country_selects"
+                       closeButtonText="Отмена"  [(ngModel)]="country" [items]="country_selects"
                        placeholder="Выбор страны" [canSearch]="true"
                        itemValueField="id" itemTextField="name"
-                       (onChange)="itemChange($event)"></ionic-selectable>
+                       (onChange)="itemChange($event)" ></ionic-selectable>
   </ion-item>
   <ion-item>
     <ionic-selectable searchPlaceholder="Поиск" searchFailText="Не найдено"
-                      closeButtonText="Отмена" [(ngModel)]="select" [items]="sphere_selects"
+                      closeButtonText="Отмена" [(ngModel)]="sphere" [items]="sphere_selects"
                       placeholder="Выбор специальности" [canSearch]="true"
                       itemValueField="id" itemTextField="name"
-                      (onChange)="itemChange($event)"></ionic-selectable>
+                      (onChange)="itemChange($event)" ></ionic-selectable>
   </ion-item>
+  <label>Заработная плата</label>
   <ion-item>
-    <label>Заработная плата</label>
-    <ion-range min="0" max="3000000" step="5000" snaps="true"></ion-range>
+    <ion-icon name="cash" size="small"></ion-icon>
+    <ion-range dualKnobs="true"[min]="min" [max]="max" [step]="step" snaps="true" pin="true"
+               [(ngModel)]="range" (ionChange)="setBadge(range)"></ion-range>
+    <ion-icon name="cash"></ion-icon>
   </ion-item>
   <ion-item>
     <!-- Текстовое поле для комментариев к заявке -->
-    <ion-textarea placeholder="Введите комментарий 
-  к заявке на трудоустройство зарубежом"   name="message">
-  </ion-textarea>
+      <ion-input type="file" placeholder="Загрузить резюме" [(ngModel)]="file"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-button >
+    <ion-button type="submit" (click)="sendEmail()">
       <!-- Кнопка с волновым эффектом -->
       <ion-ripple-effect></ion-ripple-effect>
      Оставить заявку

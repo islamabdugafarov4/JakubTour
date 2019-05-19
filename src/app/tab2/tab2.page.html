@@ -3,7 +3,7 @@
         <ion-title *ngIf="!isSearchbarOpened">
             Список стран
         </ion-title>
-<ion-searchbar *ngIf="isSearchbarOpened"
+<ion-searchbar *ngIf="isSearchbarOpened"  animated placeholder="Поиск"
                autocorrect="on" autocomplete="on"
                showCancelButton="true" (ionCancel)="isSearchbarOpened=false" (input)="getItems($event)" ></ion-searchbar>
         <ion-buttons slot="end">

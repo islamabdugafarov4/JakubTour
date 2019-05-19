@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-title>
+        Для продолжения нам понадобятся ваши некоторые данные!
+      </ion-title>
+      <ion-card-subtitle>
+        Оставьте свой номер, и мы вам
+        перезвоним
+      </ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  <!--Форма отправки данных-->
+
+  <ion-item>
+    <!--Сбор данных с помощью атрибут ngModel-->
+    <ion-input  type="text"   placeholder="Телефон"
+               [ngModel]="phone" mask="(000) 000 00 00" prefix="+7" showMaskTyped="true" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <!--Сбор данных с помощью атрибут ngModel-->
+    <ion-input  type="text"  placeholder="Имя" [ngModel]="name"></ion-input>
+  </ion-item>
+  <!--кнопка отправки-->
+  <ion-button type="submit" (click)="toEmail()" >Заказать обратный звонок</ion-button>
+
+</ion-content>

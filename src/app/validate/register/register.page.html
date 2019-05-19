@@ -1,21 +1,30 @@
 
-
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-content padding>
   <div id="authorization">Регистрация</div>
   <ion-list>
 
     <ion-item-sliding>
-      <ion-label position="floating">E-mail</ion-label>
-      <ion-input type="email" [(ngModel)]="email"></ion-input>
+      <ion-icon name="mail"></ion-icon>
+      <ion-input type="email" [(ngModel)]="email" placeholder="example@mail.ru" ></ion-input>
     </ion-item-sliding>
     <ion-item-sliding>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
+      <ion-icon name="key"></ion-icon>
+      <ion-input type="password" [(ngModel)]="password" placeholder="Пароль" ></ion-input>
     </ion-item-sliding>
     <ion-item-sliding>
-      <ion-label position="floating">Confrim Password</ion-label>
-      <ion-input type="password" [(ngModel)]="confrimpassword"></ion-input>
+      <ion-icon name="key"></ion-icon>
+      <ion-input type="password" [(ngModel)]="confrimpassword" placeholder="Подтвердите пароль" ></ion-input>
     </ion-item-sliding>
   </ion-list>
-  <ion-button fill="solid" expand="block" color="secondary" (click)="register()">Зарегистрироваться</ion-button>
+  <ion-button fill="solid" expand="block" color="secondary" (click)="register()">
+    <ion-icon name="log-in"></ion-icon>
+    Зарегистрироваться</ion-button>
+
 </ion-content>
