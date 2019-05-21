@@ -24,11 +24,11 @@
   <ion-item>
     <!--Сбор данных с помощью атрибут ngModel-->
     <ion-input  type="text"   placeholder="Телефон"
-               [ngModel]="phone" mask="(000) 000 00 00" prefix="+7" showMaskTyped="true" ></ion-input>
+               [(ngModel)]="phone" mask="(000) 000 00 00" prefix="+7" showMaskTyped="true" ></ion-input>
   </ion-item>
   <ion-item>
     <!--Сбор данных с помощью атрибут ngModel-->
-    <ion-input  type="text"  placeholder="Имя" [ngModel]="name"></ion-input>
+    <ion-input  type="text"  placeholder="Имя" [(ngModel)]="name"></ion-input>
   </ion-item>
   <!--кнопка отправки-->
   <ion-button type="submit" (click)="toEmail()" >Заказать обратный звонок</ion-button>

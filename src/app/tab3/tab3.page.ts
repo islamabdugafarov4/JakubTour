@@ -17,7 +17,7 @@ export class Tab3Page implements OnInit{
     country_selects: Selectlist[];
     country:Selectlist;
     sphere:Selectlist;
-    file: File;
+    file = null;
 
     data:Logindata = new Logindata();
     range:any;
@@ -87,11 +87,11 @@ export class Tab3Page implements OnInit{
              cc: this.data.email,
              bcc: ['abdugafarov.islam@mail.ru'],
              attachments: [
-            this.file.name
+            this.file
              ],
              subject:"Здраствуйте , меня заинтересовало трудоустройство зарубежом!",
-             body: "Интересно устроиться работать в стране"+this.country+"по специальности"+this.sphere+
-                 ". Желаемая заработная плата от "+this.valueMin+" тенге до "+this.valueMax,
+             body: '<pre>Интересно устроиться работать в стране</pre>'+'<h6>{{data.email}}</h6>'+'<pre>специальности</pre>'+'<h6>{{sphere}}</h6>'+
+                 '<pre>. Желаемая заработная плата от </pre>'+'<h6>{{valueMin}}</h6>'+'<pre>тенге до</pre> '+'<h6>{{valueMax}}</h6>',
              isHtml: true
          };
 

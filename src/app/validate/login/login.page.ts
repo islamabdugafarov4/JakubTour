@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/auth";
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
-import {AlertController, ToastController} from "@ionic/angular";
+import {AlertController} from "@ionic/angular";
 import {Logindata} from "../../models/logindata";
 
 

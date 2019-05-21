@@ -25,7 +25,7 @@ export class FeedbackPage implements OnInit {
       bcc: ['abdugafarov.islam@mail.ru'],
       attachments: null,
       subject:"Здраствуйте , меня заинтересовало трудоустройство зарубежом!",
-      body: "Хочу пройти консультацию, мое имя"+this.name+",позвоните мне по номеру"+this.phone,
+      body: '<pre>Хочу пройти консультацию, мое имя</pre>'+'<h6>{{name}}</h6>'+'<pre>,позвоните мне по номеру</pre>'+'<h6>{{phone}}</h6>',
       isHtml: true
     };
     this.emailComposer.open(email);
