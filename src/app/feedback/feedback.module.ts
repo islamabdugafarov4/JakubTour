@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-
+import{SMS} from '@ionic-native/sms/ngx'
 import { FeedbackPage } from './feedback.page';
 import {BrMaskerModule} from "brmasker-ionic-3";
 import {NgxMaskIonicModule} from "ngx-mask-ionic";
@@ -24,6 +24,7 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         NgxMaskIonicModule
     ],
+    providers:[SMS],
   declarations: [FeedbackPage]
 })
 export class FeedbackPageModule {}

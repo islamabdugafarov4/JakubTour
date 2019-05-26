@@ -2,9 +2,6 @@ import {Component, ComponentRef, OnInit} from '@angular/core';
 import {Selectlist} from "../models/selectlist";
 import {IonicSelectableComponent} from "ionic-selectable";
 import {EmailComposer} from "@ionic-native/email-composer/ngx";
-import {AngularFireAuth} from "@angular/fire/auth";
-import {LoginPage} from "../validate/login/login.page";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Logindata} from "../models/logindata";
 
 @Component({
@@ -17,7 +14,7 @@ export class Tab3Page implements OnInit{
     country_selects: Selectlist[];
     country:Selectlist;
     sphere:Selectlist;
-    file = null;
+
 
     data:Logindata = new Logindata();
     range:any;
@@ -86,13 +83,10 @@ export class Tab3Page implements OnInit{
              to: 'sendemail@bk.ru',
              cc: this.data.email,
              bcc: ['abdugafarov.islam@mail.ru'],
-             attachments: [
-            this.file
-             ],
              subject:"Здраствуйте , меня заинтересовало трудоустройство зарубежом!",
-             body: '<pre>Интересно устроиться работать в стране</pre>'+'<h6>{{data.email}}</h6>'+'<pre>специальности</pre>'+'<h6>{{sphere}}</h6>'+
-                 '<pre>. Желаемая заработная плата от </pre>'+'<h6>{{valueMin}}</h6>'+'<pre>тенге до</pre> '+'<h6>{{valueMax}}</h6>',
-             isHtml: true
+             body: '<pre>Интересно устроиться работать в стране </pre>'+this.country+'<pre> специальности </pre>'+this.sphere+
+                 '<pre>. Желаемая заработная плата от  </pre>'+this.valueMin+'<pre> тенге до </pre> '+this.valueMax,
+             isHtml: false
          };
 
 // Send a text message using default options
