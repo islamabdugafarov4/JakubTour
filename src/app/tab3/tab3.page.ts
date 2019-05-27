@@ -84,9 +84,9 @@ export class Tab3Page implements OnInit{
              cc: this.data.email,
              bcc: ['abdugafarov.islam@mail.ru'],
              subject:"Здраствуйте , меня заинтересовало трудоустройство зарубежом!",
-             body: '<pre>Интересно устроиться работать в стране </pre>'+this.country+'<pre> специальности </pre>'+this.sphere+
+             body: '<pre>Интересно устроиться работать в стране </pre>'+this.country.name+'<pre> специальности </pre>'+this.sphere.name+
                  '<pre>. Желаемая заработная плата от  </pre>'+this.valueMin+'<pre> тенге до </pre> '+this.valueMax,
-             isHtml: false
+             isHtml: true
          };
 
 // Send a text message using default options
